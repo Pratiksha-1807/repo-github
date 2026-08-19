@@ -83,14 +83,19 @@ class Inbox:
         print('Email deleted.\n')
 
 def main():
-    tory = User('Tory')
-    ramy = User('Ramy')        
-    
-    tory.send_email(ramy, 'Hello', 'Hi Ramy, just saying hello!')
-    ramy.send_email(tory, 'Re: Hello', 'Hi Tory, hope you are fine.')
-    ramy.check_inbox()
-    ramy.read_email(1)
-    ramy.delete_email(1)
-    ramy.check_inbox()
+    name1 = input("Enter first user's name: ").strip()
+    name2 = input("Enter second user's name: ").strip()
+
+    sender = User(name1)
+    reciever = User(name2)
+
+    sender.send_email(receiver, 'Hello', f'Hi {reciever.name}, just saying hello!')
+    receiver.send_email(sender, 'Re: Hello', f'Hi {sender.name}, hope you are fine.')
+    receiver.check_inbox()
+    receiver.read_email(1)
+    receiver.delete_email(1)
+    receiver.check_inbox()
+
+
 if __name__ == '__main__':
     main()
